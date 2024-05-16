@@ -8,7 +8,7 @@
 
 bool isEmpty (int* s, int t) {
   // returns true if t = -1
-
+  // sdakjfl;askdjf
   // INSERT YOUR CODE HERE
 }
 
