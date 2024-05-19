@@ -1,3 +1,5 @@
+//Sibgha Ahmad
+//ahmad.si@northeastern.edu
 /*C Program to read and print the n employee details using structure and dynamic memory allocation*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,7 +24,7 @@ void readData(int n, employee_t* s)
        scanf("%s", s[i].Name);
        printf("Designation: ");
        scanf("%s", s[i].Designation);
-       printf("Departmnt: ");
+       printf("Department: ");
        scanf("%s", s[i].Dept);
     }
 	    
