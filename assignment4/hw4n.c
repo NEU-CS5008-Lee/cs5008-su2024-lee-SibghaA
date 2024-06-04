@@ -1,5 +1,5 @@
-// name: <your name here>
-// email: <your email here>
+// name: Sibgha Ahmad
+// email: ahmad.si@northeastern.edu
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -38,7 +38,18 @@ void selection_sort_2arr(int* source, int* dest, bool* valid)
   for (int i=0; i<LIMIT; i++) {
 
   // INSERT YOUR CODE HERE
-
+    smallest = RAND_RANGE;
+    int smallestIndex = -1;
+    for(int j = 0; j < LIMIT; j++) {
+      if(valid[j] && source[j] < smallest) {
+        smallest = source[j];
+	smallestIndex = j;
+      }
+    }
+    if(smallestIndex != -1) {
+      dest[i] = source[smallestIndex];
+      valid[smallestIndex] = false;
+    }
   }
 }
 
@@ -51,7 +62,17 @@ void selection_sort_1arr(int* source)
   for (int i=0; i<LIMIT; i++) {
 
   // INSERT YOUR CODE HERE
-
+    int smallestIndex = i;
+    for(int j = i + 1;j < LIMIT; j++) {
+      if(source[j] < source[smallestIndex]) {
+        smallestIndex = j;
+      }
+    }
+    if(smallestIndex != i) {
+      temp = source[i];
+      source[i] = source[smallestIndex];
+      source[smallestIndex] = temp;
+    }
   }
 }
 
