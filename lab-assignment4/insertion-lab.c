@@ -31,23 +31,29 @@ int main()
       j = i - 1;
       while (j >= 0 && arr[j] > temp){
         arr[j + 1] = arr[j];
-	j = j - 1;
+	j--;
       }
       arr[j + 1] = temp;
     }
     printf("Sorted array:\n");
     for(i = 0; i < count; i++){
+      if(i > 0){
+        printf(" ");
+      }
       printf("%d", arr[i]);
     }
     printf("\n");
 
-    fp = fopen("Output.txt", "w");
+    fp = fopen("Output1.txt", "w");
     if (fp == NULL){
       printf("\n Cannot open the file \n");
       exit(0);
     }
     for(i = 0; i < count; i++){
-      fprintf(fp, "%d\n", arr[i]);
+      if(i > 0) {
+        fprintf(fp, " ");
+      }
+      fprintf(fp, "%d", arr[i]);
     }
     fclose(fp);
     
