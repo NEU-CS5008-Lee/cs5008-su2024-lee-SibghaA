@@ -40,7 +40,47 @@ void mergeIt(
   
 
   // ADD YOUR CODE HERE
-  
+  int leftSize = leftStop - leftStart + 1;
+  int rightSize = rightStop - rightStart + 1;
+
+  char* leftArray = (char*)malloc(leftSize * sizeof(char));
+  char* rightArray = (char*)malloc(rightSize * sizeof(char));
+
+  for(int i = 0; i < leftSize; i++){
+    leftArray[i] = data[leftStart + i];
+  }
+  for(int i = 0; i < rightSize; i++){
+    rightArray[i] = data[rightStart + i];
+  }
+
+  int leftIndex = 0, rightIndex = 0, mergedIndex = leftStart;
+
+  while(leftIndex < leftSize && rightIndex < rightSize){
+    if(leftArray[leftIndex] <= rightArray[rightIndex]){
+      data[mergedIndex] = leftArray[leftIndex];
+      leftIndex++;
+    } else {
+      data[mergedIndex] = rightArray[rightIndex];
+      rightIndex++;
+    }
+    mergedIndex++;
+  }
+
+  while(leftIndex < leftSize){
+    data[mergedIndex] = leftArray[leftIndex];
+    leftIndex++;
+    mergedIndex++;
+  }
+
+  while(rightIndex < rightSize){
+    data[mergedIndex] = rightArray[rightIndex];
+    rightIndex++;
+    mergedIndex++;
+  }
+
+  free(leftArray);
+  free(rightArray);
+
   return;
 }
 
