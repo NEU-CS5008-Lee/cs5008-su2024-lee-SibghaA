@@ -37,6 +37,26 @@ char upperChar(char c){
 void quicky(char* data, int left, int right) {
 
   // ADD YOUR CODE HERE
+  if(left < right){
+    char pivot = data[right];
+    int i = left - 1;
+
+    for(int j = left; j < right; j++){
+      if(data[j] <= pivot){
+        i++;
+	char temp = data[i];
+	data[i] = data[j];
+	data[j] = temp;
+      }
+    }
+    char temp = data[i + 1];
+    data[i + 1] = data[right];
+    data[right] = temp;
+
+    int pivotIndex = i + 1;
+    quicky(data, left, pivotIndex - 1);
+    quicky(data, pivotIndex + 1, right);
+  }
 
   return;
 }
