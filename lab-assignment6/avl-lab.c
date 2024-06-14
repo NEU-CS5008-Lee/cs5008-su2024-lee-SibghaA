@@ -1,5 +1,5 @@
-/*---enter your name here----*/
-/*---enter your email here-----*/
+/*---Sibgha Ahmad----*/
+/*---ahmad.si@northeastern.edu-----*/
 
 #include<stdio.h>
 #include<stdlib.h>
