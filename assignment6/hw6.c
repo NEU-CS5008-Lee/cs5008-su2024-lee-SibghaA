@@ -244,26 +244,59 @@ void freeQueue(queue_t* qp) {
 
 void preorder (tnode_t* np) {
   // INSERT YOUR CODE HERE
+  if(np != NULL){
+    printf("%c", np->data);
+    preorder(np->left);
+    preorder(np->right);
+  }
 
   return;
 }
 
 void inorder (tnode_t* np) {
   // INSERT YOUR CODE HERE
-  
+  if(np != NULL){
+    inorder(np->left);
+    printf("%c", np->data);
+    inorder(np->right);
+  }
   return;
 }
 
 void postorder (tnode_t* np) {
   // INSERT YOUR CODE HERE
-  
+  if (np != NULL){
+    postorder(np->left);
+    postorder(np->right);
+    printf("%c", np->data);
+  }
   return;
 }
 
 
 void breadthFirst (tnode_t* root) {
   // INSERT YOUR CODE HERE
-  
+  queue_t* q = newQueue();
+  tnode_t* current;
+
+  if(root != NULL){
+    enqueue(q, root);
+  }
+
+  while(!isEmpty(q)){
+    current = dequeue(q);
+    if(current != NULL){
+      printf("%c", current->data);
+      if(current->left != NULL){
+        enqueue(q, current->left);
+      }
+      if(current->right != NULL){
+        enqueue(q, current->right);
+      }
+
+    }
+  }
+  freeQueue(q);
   return;
 }
 
