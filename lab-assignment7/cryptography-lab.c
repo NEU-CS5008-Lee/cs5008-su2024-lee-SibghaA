@@ -1,5 +1,5 @@
-//enter your name here
-//enter your email here
+//Sibgha Ahmad
+//ahmad.si@northeastern.edu
 
 #include <stdio.h>
 #include <string.h>
@@ -9,6 +9,12 @@
 void encrypt(char text[], int key)
 {
     // Add your code here
+    for(int i = 0; i <strlen(text); i++){
+      if(isalpha(text[i])){
+        char base = islower(text[i]) ? 'a' : 'A';
+	text[i] = (text[i] - base + key) % 26 + base;
+      }
+    }
 }
 
 /*function to decrypt the data*/
@@ -16,6 +22,12 @@ void decrypt(char text[],int key)
 {
     
     // Add your code here
+    for(int i = 0; i < strlen(text); i++){
+      if(isalpha(text[i])){
+        char base = islower(text[i]) ? 'a' : 'A';
+	text[i] = (text[i] - base - key + 26) % 26 + base;
+      }
+    }
     
 }
 
