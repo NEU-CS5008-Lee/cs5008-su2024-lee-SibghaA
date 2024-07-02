@@ -1,6 +1,6 @@
 /* Lab Assignment for Hospital ER */
-//enter your name here
-//enter your email here
+//Sibgha Ahmad
+//ahmad.si@northeastern.edu
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -164,6 +164,7 @@ int main()
             printf("\t\t\t1.ADD A PATIENT\n");
             printf("\t\t\t2.DELETE A RECORD\n");
             printf("\t\t\t3.PATIENTS WAITING IN THE QUEUE\n");
+	    printf("\t\t\t4.EXIT\n");
             printf("\t\t\tEnter your choice:");
             scanf("%d",&option);
             switch(option)
@@ -186,6 +187,8 @@ int main()
                 case 4:
                     printf("The program is being terminated\n");
                     break;
+		default:
+		    printf("Invalid selection - please select a valid option.\n");
             }
         }
         while(option!=4);
