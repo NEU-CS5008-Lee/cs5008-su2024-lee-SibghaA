@@ -1,5 +1,5 @@
-// name: <your name here>
-// email: <your email here>
+// name: Sibgha Ahmad
+// email: ahmad.si@northeastern.edu
 
 
 #include <stdio.h>
