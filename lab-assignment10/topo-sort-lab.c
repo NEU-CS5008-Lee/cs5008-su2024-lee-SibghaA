@@ -1,5 +1,5 @@
-// Enter your name here
-//Enter your email here
+// Sibgha Ahmad
+//ahmad.si@northeastern.edu
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -89,7 +89,12 @@ int find_indegree(int arr[][MAX], int node,int n)
     int i,in_deg = 0;
     
     //insert your code here
-    
+    for(i = 1; i <= n; i++){
+      if(arr[i][node] == 1){
+        in_deg++;
+      }
+    }
+    return in_deg;
 }
 
 /*Function to perform topological sorting of the Graph */
@@ -102,7 +107,25 @@ void topologicalOrder(int arr[][MAX], Queue *t, int n)
     
     
     //insert your code here
-    
+    for(i = 1; i <= n; i++){
+      indeg[i] = find_indegree(arr, i , n);
+      if(indeg[i] == 0){
+        enqueue(t, i);
+      }
+    }
+    while(!isEmpty(t->front)){
+      delNode = dequeue(t);
+      result[j++] = delNode;
+
+      for(i = 1; i <= n; i++){
+        if(arr[delNode][i] == 1){
+	  indeg[i]--;
+	  if(indeg[i] == 0){
+	    enqueue(t, i);
+	  }
+	}
+      }
+    }
     
     
     printf("topological ordering\n");
