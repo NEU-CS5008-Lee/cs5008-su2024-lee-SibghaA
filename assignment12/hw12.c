@@ -54,6 +54,7 @@ int main() {
   pthread_t tid[NTHREADS*4];
   int i;
   srand(time(NULL));
+
   printf("Counter starts at %d\n", counter);
   
   // create and run the thread
