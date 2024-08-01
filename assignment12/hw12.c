@@ -7,15 +7,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <unistd.h>
+#include <time.h>
 
 #define NTHREADS 100
 
 // shared variable
 int counter = 0;
 
+
 // thread to be executed - unspecified variable arguments
 void* thread1 (void* vargp) {
   // add 1 to counter
+  usleep(rand() % 1000);
   counter = counter +1;
   return NULL;
 }
@@ -23,6 +27,7 @@ void* thread1 (void* vargp) {
 void* thread2 (void* vargp) {
   // add 5 to counter
   // *** YOUR CODE GOES HERE ***
+  usleep(rand() % 1000);
   counter = counter + 5;
   return NULL;
 }
@@ -30,6 +35,7 @@ void* thread2 (void* vargp) {
 void* thread3 (void* vargp) {
   // subtract 2 from counter
   // *** YOUR CODE GOES HERE ***
+  usleep(rand() % 1000);
   counter = counter - 2;
   return NULL;
 }
@@ -37,15 +43,17 @@ void* thread3 (void* vargp) {
 void* thread4 (void* vargp) {
   // subtract 10 from counter
   // *** YOUR CODE GOES HERE ***
+  usleep(rand() % 1000);
   counter = counter - 10;
   return NULL;
 }
 
 int main() {
+  srand(time(NULL));
   // array to keep Pthread IDs of created threads
   pthread_t tid[NTHREADS*4];
   int i;
-
+  srand(time(NULL));
   printf("Counter starts at %d\n", counter);
   
   // create and run the thread
